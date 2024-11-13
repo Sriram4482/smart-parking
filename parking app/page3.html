@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search, Notification, and Advertising Interface</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Your existing styles */
+
+        /* Scrolling offers styles */
+        .offers-container {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .offers {
+            white-space: nowrap;
+            animation: scrollLeft 20s linear infinite;
+        }
+
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Style for the image in the scrolling offers */
+        .offer-image {
+            max-width: 100px; /* Set your desired width */
+            max-height: 60px; /* Set your desired height */
+            margin-right: 10px; /* Adjust spacing between images */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Search, Notification, and Advertising Interface</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <!-- Your search and notification buttons -->
+        </div>
+
+        <!-- Your main content goes here -->
+        <p>This is your main content area.</p>
+
+        <!-- Profile Pop-up -->
+        <div class="popup" id="profilePopup">
+            <!-- Profile popup content -->
+        </div>
+        <div class="popup-overlay" onclick="togglePopup()"></div>
+
+        <!-- Scrolling offers section -->
+        <div class="offers-container">
+            <div class="offers">
+                <!-- Add your advertising content with images -->
+                <img src="h.jpg" >
+                <img src="image2.jpg" alt="Offer 2" class="offer-image">
+                <img src="image3.jpg" alt="Offer 3" class="offer-image">
+                <!-- Repeat for additional images and offers -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script>
+        function togglePopup() {
+            // Your togglePopup function
+        }
+    </script>
+</body>
+</html>

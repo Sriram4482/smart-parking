@@ -1,0 +1,148 @@
+//1.A:
+public class DefaultPrimitiveValues {
+    public static void main(String[] args) {
+        // Default values of primitive data types
+        byte defaultByte = 0;
+        short defaultShort = 0;
+        int defaultInt = 0;
+        long defaultLong = 0L;
+        float defaultFloat = 0.0f;
+        double defaultDouble = 0.0;
+        char defaultChar = '\u0000'; // Unicode for null character
+        boolean defaultBoolean = false;
+
+        // Displaying default values
+        System.out.println("Default value of byte: " + defaultByte);
+        System.out.println("Default value of short: " + defaultShort);
+        System.out.println("Default value of int: " + defaultInt);
+        System.out.println("Default value of long: " + defaultLong);
+        System.out.println("Default value of float: " + defaultFloat);
+        System.out.println("Default value of double: " + defaultDouble);
+        System.out.println("Default value of char: " + defaultChar);
+        System.out.println("Default value of boolean: " + defaultBoolean);
+    }
+}
+
+//1.B:
+import java.util.Scanner;
+
+public class QuadraticEquationRoots {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the coefficients a, b, and c of the quadratic equation (ax^2 + bx + c):");
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
+        double c = scanner.nextDouble();
+
+        double discriminant = b * b - 4 * a * c;
+
+        if (discriminant > 0) {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            System.out.println("The roots of the quadratic equation are real and distinct:");
+            System.out.println("Root 1: " + root1);
+            System.out.println("Root 2: " + root2);
+        } else if (discriminant == 0) {
+            double root = -b / (2 * a);
+            System.out.println("The roots of the quadratic equation are real and equal:");
+            System.out.println("Root 1 = Root 2: " + root);
+        } else {
+            double realPart = -b / (2 * a);
+            double imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
+            System.out.println("The roots of the quadratic equation are complex:");
+            System.out.println("Root 1: " + realPart + " + " + imaginaryPart + "i");
+            System.out.println("Root 2: " + realPart + " - " + imaginaryPart + "i");
+        }
+
+        scanner.close();
+    }
+}
+ //1.C:
+import java.util.Scanner;
+public class QualifyingRacers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the speeds of the 5 racers:");
+        int[] speeds = new int[5];
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Racer " + (i + 1) + ": ");
+            speeds[i] = scanner.nextInt();
+        }
+        int totalSpeed = 0;
+        for (int speed : speeds) {
+            totalSpeed += speed;
+        }
+        double averageSpeed = totalSpeed / 5.0;
+        System.out.println("Speed of qualifying racers:");
+        for (int i = 0; i < 5; i++) {
+            if (speeds[i] > averageSpeed) {
+                System.out.println("Racer " + (i + 1) + ": " + speeds[i]);
+            }
+        }
+
+        scanner.close();
+    }
+}
+
+//7.A:
+import java.util.Scanner;
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter the first number: ");
+            int num1 = scanner.nextInt();
+            System.out.print("Enter the second number: ");
+            int num2 = scanner.nextInt();
+            int result = divide(num1, num2);
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+
+        System.out.println("Program execution completed.");
+    }
+    public static int divide(int dividend, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Division by zero error.");
+        }
+        return dividend / divisor;
+    }
+}
+
+//7.B:
+import java.util.Scanner;
+
+public class MultipleCatchExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter the numerator: ");
+            int numerator = scanner.nextInt();
+            System.out.print("Enter the denominator: ");
+            int denominator = scanner.nextInt();
+            int result = divide(numerator, denominator);
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Invalid input. Please enter integers only.");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+
+        System.out.println("Program execution completed.");
+    }
+    public static int divide(int numerator, int denominator) {
+        return numerator / denominator;
+    }
+}
+

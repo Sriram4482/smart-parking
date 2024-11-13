@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Author</title>
+    <style>
+        body {
+            background-image: url('car.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: #edf2f5;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px gold;
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .box input[type="search"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .data {
+            background-color: #0aaaaf;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <div class="box">
+
+            <div class="data">
+                <label for="name">NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label> <input type="text" id="name" placeholder="Enter Name here...">
+            </div>
+            <div class="data">
+                <label for="mobile">PHONE NUMBER:</label> <input type="tel" id="mobile" placeholder="Enter Number here...">
+            </div>
+            <div class="data">
+                <label for="blood">EMAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><input type="email" id="blood" placeholder="Enter your email address...">
+            </div>
+            <div class="data">
+                AGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="number" id="age" placeholder="Enter your age">
+            </div>
+            <div class="data">
+                VECHILE NUMBER:<input type="text" id="vehicle" placeholder="Enter vehicle no......">
+            </div>
+
+            <br>
+            <button onclick="startVoiceRecognition()">Start Voice Recognition</button>
+            <a href="tier.html"><button onclick="submitForm()">Submit</button></a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nameInput = document.getElementById('name');
+            const mobileInput = document.getElementById('mobile');
+            const emailInput = document.getElementById('blood');
+            const ageInput = document.getElementById('age');
+            const vehicleInput = document.getElementById('vehicle');
+
+            let recognition;
+
+            // Check if browser supports SpeechRecognition
+            if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+
+                // Event listener for the speech recognition result
+                recognition.onresult = function (event) {
+                    const result = event.results[0][0].transcript.toLowerCase();
+
+                    // Assign recognized speech to the focused input field
+                    document.activeElement.value = result;
+                };
+            } else {
+                console.error('Speech recognition is not supported in this browser.');
+            }
+
+            // Function to start voice recognition
+            window.startVoiceRecognition = function () {
+                if (recognition) {
+                    recognition.start();
+                } else {
+                    console.error('Speech recognition is not available.');
+                }
+            };
+        });
+
+        // Function to handle form submission
+        function submitForm() {
+            // Add your form submission logic here
+            // For demonstration purposes, you can log the form data to the console
+            console.log("Name: " + nameInput.value);
+            console.log("Phone Number: " + mobileInput.value);
+            console.log("Email: " + emailInput.value);
+            console.log("Age: " + ageInput.value);
+            console.log("Vehicle Number: " + vehicleInput.value);
+        }
+    </script>
+</body>
+
+</html>

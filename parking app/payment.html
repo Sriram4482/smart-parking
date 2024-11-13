@@ -1,0 +1,59 @@
+<!--Font Awesome CDN-->
+<link rel="stylesheet" href="basic1.css">
+<div class="container">
+    <div class="title">
+        <h4>Select a <span style="color: #6064b6">Payment</span> method</h4>
+    </div>
+
+    <form action="#">
+        <input type="radio" name="payment" id="visa">
+        <input type="radio" name="payment" id="mastercard">
+        <input type="radio" name="payment" id="paypal">
+        <input type="radio" name="payment" id="AMEX">
+
+
+        <div class="category">
+            <label for="visa" class="visaMethod">
+                <div class="imgName">
+                    <div class="imgContainer visa">
+                        <img src="https://i.ibb.co/vjQCN4y/Visa-Card.png" alt="">
+                    </div>
+                    <span class="name">VISA</span>
+                </div>
+                <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+            </label>
+
+            <label for="mastercard" class="mastercardMethod">
+                <div class="imgName">
+                    <div class="imgContainer mastercard">
+                        <img src="https://i.ibb.co/vdbBkgT/mastercard.jpg" alt="">
+                    </div>
+                    <span class="name">Mastercard</span>
+                </div>
+                <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+            </label>
+
+            <label for="paypal" class="paypalMethod">
+                <div class="imgName">
+                    <div class="imgContainer paypal">
+                        <a href="https://razorpay.com/payment-link/plink_Nfq5kzCJ5lH7Bb" target="_blank">
+                            <img src="images.jpg" alt=""> <!-- Updated link here -->
+                        </a>
+                    </div>
+                    <span class="name">UPI</span>
+                </div>
+                <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+            </label>
+
+            <label for="AMEX" class="amexMethod">
+                <div class="imgName">
+                    <div class="imgContainer AMEX">
+                        <img src="cash.jpg" alt="">
+                    </div>
+                    <span class="name">CASH</span>
+                </div>
+                <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+            </label>
+        </div>
+    </form>
+</div>
